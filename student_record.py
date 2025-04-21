@@ -1,10 +1,7 @@
 # The code below is a simple student record management system that allows you to add, view, search, and delete student records.
 # It was created by Okesh
 
-student_record = {"Ade": [18, "75%"],
-                  "Tolu": [20, "85%"],
-                  "Tunde": [19, "90%"],
-                  "Bola": [21, "95%"],}
+student_record = {}
 
 def add_student():
     name = input("Enter Student name as key: ")
@@ -74,8 +71,12 @@ while True:
         delete_student()
     elif choice == "5":
         print("You chose to delete all students.")
-        student_record.clear()
-        print("\nAll students deleted successfully.")
+        if (len(student_record) == 0):
+            print("There are no students found in the record manager.")
+        else:
+            print("Deleting all students...")
+            student_record.clear()
+            print("\nAll students deleted successfully.")
     elif choice == "6":
         print("You chose to exit the program.")
         print("Thank you for using Student Records Manager.")
